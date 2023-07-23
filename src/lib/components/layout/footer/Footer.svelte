@@ -1,22 +1,16 @@
 <!-- ================================================ SCRIPT -->
 <script lang="ts">
-    import './global.css'
-    import Footer from "$lib/components/layout/footer/Footer.svelte"
+    import Wikipedia from "./Wikipedia.svelte";
 </script>
-
 <!-- ================================================ CONTENT -->
-<main>
-    <slot />
-</main>
-<Footer />
+<footer>
+    <Wikipedia />
+</footer>
 
 <!-- ================================================ STYLE -->
 <style>
-    main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    footer {
+        border-top: solid 1px black;
         max-width: var(--global-width);
         margin: 0 auto;
         padding: var(--global-padding);

@@ -5,7 +5,7 @@
 	import DescriptionStore from '$lib/stores/description';
 	import StateStore from '$lib/stores/state';
 
-    import DescriptionInformations from '$lib/components/DescriptionInformations.svelte'
+	import DescriptionInformations from '$lib/components/DescriptionInformations.svelte';
 
 	let input_description_value = '';
 
@@ -18,12 +18,15 @@
 		StripStore.init($DescriptionStore.blank);
 		StateStore.set($DescriptionStore.initial);
 	}
+
+	function handle_start() {
+		alert('Start');
+	}
 </script>
 
 <!-- ================================================ CONTENT -->
 
 <h1>Turing</h1>
-
 
 <DescriptionInformations />
 <section>
@@ -32,11 +35,12 @@
 			<textarea bind:value={input_description_value} />
 			<button on:click={handle_load_description}>Load</button>
 		</div>
-		<div>
+		<div class="speed-container">
 			<label for="speed">speed</label>
 			<input type="range" name="speed" bind:value={$SpeedStore} min="10" max="3000" step="10" />
 			<p>{$SpeedStore} ms</p>
 		</div>
+		<input type="submit" on:click|preventDefault={handle_start} value="Start" />
 	</form>
 </section>
 <section>
@@ -57,6 +61,7 @@
 	section,
 	form {
 		width: 100%;
+        text-align: center;
 	}
 
 	form .description-container {
@@ -70,6 +75,12 @@
 		resize: none;
 	}
 
+    form .speed-container {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
 	ol {
 		display: flex;
 	}
@@ -82,5 +93,9 @@
 		height: 50px;
 		background: grey;
 		border: solid 1px black;
+	}
+
+	.description-container > button {
+		margin: 10px auto;
 	}
 </style>
