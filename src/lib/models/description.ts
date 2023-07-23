@@ -14,7 +14,7 @@ export interface Description {
             read: string;
             to_state: string;
             write: string;
-            action: string;
+            action: "LEFT" | "RIGHT";
         }[];
     };
 }

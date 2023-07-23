@@ -1,0 +1,48 @@
+{
+    "name": "unary_sub",
+    "alphabet": [
+        "L",
+        ".",
+        "R"
+    ],
+    "blank": ".",
+    "states": [
+        "ping",
+        "pong",
+        "finish"
+    ],
+    "initial": "ping",
+    "finals": [
+        "finish"
+    ],
+    "transitions": {
+        "ping": [
+            {
+                "read": ".",
+                "to_state": "pong",
+                "write": "L",
+                "action": "RIGHT"
+            },
+            {
+                "read": "L",
+                "to_state": "pong",
+                "write": "L",
+                "action": "RIGHT"
+            }
+        ],
+        "pong": [
+            {
+                "read": ".",
+                "to_state": "ping",
+                "write": "R",
+                "action": "LEFT"
+            },
+            {
+                "read": "R",
+                "to_state": "ping",
+                "write": "R",
+                "action": "LEFT"
+            }
+        ]
+    }
+}
